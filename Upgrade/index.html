@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft Theme</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+   
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div id="Logo">
+      <span id="title">Jhon lister francisco</span>
+    </div>
+
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="favorits.html">Favorites</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="project.html">Project</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Name -->
+  <h1>
+    <span>J</span><span>h</span><span>o</span><span>n</span>
+    <span>&nbsp;</span>
+    <span>L</span><span>i</span><span>s</span><span>t</span><span>e</span><span>r</span>
+    <span>&nbsp;</span>
+    <span>F</span><span>r</span><span>a</span><span>n</span><span>c</span><span>i</span><span>s</span><span>c</span><span>o</span>
+  </h1>
+  
+  <button class="popup-btn" onclick="openPopup()">click me</button>
+
+
+<!-- Popup Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closePopup()">&times;</button>
+    <h2>🎉 Achievement Unlocked!</h2>
+    <p>Welcome hahahahha</p>
+    <canvas id="confetti"></canvas>
+  </div>
+</div>
+
+  <script>
+     function openPopup() {
+    const modal = document.getElementById("modal");
+    modal.style.display = "flex";
+
+    // 🎉 Trigger confetti
+    startConfetti();
+  }
+
+  function closePopup() {
+    document.getElementById("modal").style.display = "none";
+    stopConfetti();
+  }
+
+  // Close popup when clicking outside
+  window.onclick = function(event) {
+    const modal = document.getElementById("modal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+      stopConfetti();
+    }
+  }
+
+  // 🎉 Confetti Effect
+  let confettiCtx, confettiPieces = [], confettiInterval;
+
+  function startConfetti() {
+    const canvas = document.getElementById("confetti");
+    confettiCtx = canvas.getContext("2d");
+    resizeCanvas(canvas);
+
+    confettiPieces = Array.from({length: 100}).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      size: Math.random() * 8 + 4,
+      speed: Math.random() * 3 + 2,
+      color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+      angle: Math.random() * 2 * Math.PI
+    }));
+
+    confettiInterval = setInterval(() => drawConfetti(canvas), 30);
+  }
+
+  function stopConfetti() {
+    clearInterval(confettiInterval);
+  }
+
+  function drawConfetti(canvas) {
+    confettiCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+    confettiPieces.forEach(p => {
+      p.y += p.speed;
+      p.x += Math.sin(p.angle) * 2;
+      if (p.y > canvas.height) p.y = -10;
+      confettiCtx.fillStyle = p.color;
+      confettiCtx.fillRect(p.x, p.y, p.size, p.size);
+    });
+  }
+
+  function resizeCanvas(canvas) {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  window.onresize = () => {
+    const canvas = document.getElementById("confetti");
+    if (canvas) resizeCanvas(canvas);
+  }
+  </script>
+</body>
+</html>

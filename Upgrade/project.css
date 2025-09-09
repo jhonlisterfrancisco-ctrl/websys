@@ -1,0 +1,112 @@
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url('p/d(1).gif') no-repeat center center/cover;
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+      height: 100vh;
+      overflow-y: auto;
+      padding-top: 80px; /* leave space for navbar */
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0,0,0,0.7);
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    #title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #00ff00;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00ff00;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+      color: #ffd700;
+      text-shadow: 2px 2px #000;
+    }
+
+    /* Project Section */
+    .project-section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;px;
+    }
+
+    /* Card styled like Minecraft chest slot */
+    .card {
+      background: #b97a57;
+      border: 6px solid #5c3b24;
+      border-radius: 8px;
+      box-shadow: inset 0 0 10px #3e2a18, 0 8px #2b1a10;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .card:hover {
+      background: #e6b873;
+      transform: scale(1.1);
+    }
+
+    .card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border: 4px solid #000;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: #ffd700;
+      font-size: 12px;
+      margin-bottom: 8px;
+      text-shadow: 1px 1px #000;
+    }
+
+    .card p {
+      font-size: 10px;
+      line-height: 1.4;
+      color: #fff;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }

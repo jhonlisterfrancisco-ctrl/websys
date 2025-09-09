@@ -1,0 +1,77 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url('p/d(1).gif') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+      min-height: 100vh;
+      padding-top: 100px; /* Push content below navbar */
+      text-align: center;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    #title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #00ff00;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00ff00;
+    }
+
+    /* Page Heading */
+    h1 {
+      font-size: 24px;
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px #000;
+    }
+
+    /* Map Container styled like a chest */
+    .map-container {
+      background: #b97a57;
+      border: 6px solid #5c3b24;
+      border-radius: 8px;
+      box-shadow: inset 0 0 10px #3e2a18, 0 8px #2b1a10;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 6px;
+      border: 4px solid #000;
+    }

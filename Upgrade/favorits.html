@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="favorits.css">
+  <title>Favorites</title>
+  
+  </style>
+</head>
+<body>
+  <nav>
+    <div id="Logo">
+      <span id="title">Jhon lister Francisco</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="favorits.html">Favorites</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="project.html">Project</a></li>
+      <li><a href="Map.html">Map</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="favorites">
+    <h2>My Favorites</h2>
+
+    <!-- Food -->
+    <h3>🍕 Food</h3>
+    <div class="favorites-grid">
+      <div class="fav-item">
+        <img src="p/adobo.jpg" alt="Adobo">
+        <p>Adobo</p>
+      </div>
+      <div class="fav-item">
+        <img src="p/pizza.jpg" alt="Pizza">
+        <p>Pizza</p>
+      </div>
+    </div>
+
+    <!-- Anime -->
+    <h3>🎌 Anime</h3>
+    <div class="favorites-grid">
+      <div class="fav-item">
+        <img src="p/black clover.jpg" alt="Black Clover">
+        <p>Black Clover</p>
+      </div>
+      <div class="fav-item">
+        <img src="p/dragonball.jpg" alt="Dragon Ball">
+        <p>Dragon Ball</p>
+      </div>
+    </div>
+
+    <!-- Games -->
+    <h3>🎮 Games</h3>
+    <div class="favorites-grid">
+      <div class="fav-item">
+        <img src="p/ml.jpg" alt="Mobile Legends">
+        <p>Mobile Legends</p>
+      </div>
+      <div class="fav-item">
+        <img src="p/valo.jpg" alt="Valorant">
+        <p>Valorant</p>
+      </div>
+    </div>
+
+    <!-- Animals -->
+    <h3>🐾 Animals</h3>
+    <div class="favorites-grid">
+      <div class="fav-item">
+        <img src="p/cat.jpg" alt="Cat">
+        <p>Cat</p>
+      </div>
+      <div class="fav-item">
+        <img src="p/Rabbit.jpg" alt="Rabbit">
+        <p>Rabbit</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Music Section -->
+  <div class="music-container">
+    <h3>🎵 Music</h3>
+    <div class="favorites-grid">
+      <div class="fav-item" onclick="playMusic(this)">
+        <img src="p/feel it.jpg" alt="d4vd">
+        <p>d4vd - Feel It</p>
+        <audio controls>
+          <source src="p/d4vd - Feel It (Official Music Video) [vZi8ET9k11g].mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="fav-item" onclick="playMusic(this)">
+        <img src="p/gold.jpg" alt="JVKE">
+        <p>JVKE - golden hour</p>
+        <audio controls>
+          <source src="p/JVKE - golden hour (official music video) [PEM0Vs8jf1w].mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="fav-item" onclick="playMusic(this)">
+        <img src="p/black.jpg" alt="Vicke Blanka">
+        <p>Vicke Blanka - Black Catcher</p>
+        <audio controls>
+          <source src="p/ビッケブランカ - Black Catcher _ Vicke Blanka - Black Catcher [hP6VM6YAMIE].mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movies Section -->
+  <div class="movie-container">
+    <h3>🎬 Movies</h3>
+    <div class="favorites-grid">
+      <div class="fav-item">
+        <img src="p/avenger.jpg" alt="Avengers: Endgame">
+        <p>Avengers: Endgame</p>
+        <iframe width="220" height="120"
+                src="https://www.youtube.com/embed/TcMBFSGVi1c"
+                title="Avengers Trailer" allowfullscreen></iframe>
+      </div>
+      <div class="fav-item">
+        <img src="p/spiderjpg.jpg" alt="Spider-Man: No Way Home">
+        <p>Spider-Man: No Way Home</p>
+        <iframe width="220" height="120"
+                src="https://www.youtube.com/embed/JfVOs4VSpmA"
+                title="Spider-Man No Way Home Trailer" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <script>
+    function playMusic(element) {
+      // Pause all other audio players
+      document.querySelectorAll(".music-container audio").forEach(audio => {
+        if (!element.contains(audio)) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+
+      // Play the clicked one
+      let audio = element.querySelector("audio");
+      if (audio) {
+        audio.play();
+      }
+    }
+
+    // Open Lightbox
+    function openLightbox(img) {
+      document.getElementById("lightbox").style.display = "flex";
+      document.getElementById("lightbox-img").src = img.src;
+      document.getElementById("lightbox-caption").innerText = img.alt;
+    }
+
+    // Close Lightbox
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+
+    // Attach click event to all images
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".fav-item img").forEach(img => {
+        img.addEventListener("click", (e) => {
+          e.stopPropagation(); // Prevent closing immediately
+          openLightbox(img);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
